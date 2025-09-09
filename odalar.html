@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Odalarımız - Otel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f9fa;
+    color: #333;
+}
+
+/* Navbar */
+
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+}
+
+/* Odalar Bölümü */
+.rooms-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 100px auto 50px;
+    padding: 0 15px;
+}
+.room-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+.room-card:hover {
+    transform: translateY(-5px);
+}
+.room-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 2px solid #3a9eb8;
+    transition: filter 0.3s ease;
+}
+.room-card:hover img {
+    filter: brightness(70%);
+}
+/* İncele Butonu tam ortada */
+.room-card .cta-button {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+    padding: 12px 25px;
+    font-size: 0.9rem;
+    background: #3a9eb8;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+}
+.room-card:hover .cta-button {
+    opacity: 1;
+}
+
+/* Oda Bilgileri */
+.room-info {
+    padding: 15px;
+    flex: 1;
+}
+.room-info h3 {
+    color: #3a9eb8;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+.room-info p {
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+.room-info .features {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.room-info .feature {
+    background: #3a9eb8;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* Fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rooms-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 80px;
+    }
+    .room-card {
+        height: auto;
+    }
+    .room-card img {
+        height: 200px;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .nav-menu {
+        display: none;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo"><h2>Otel1</h2></div>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">Anasayfa</a></li>
+      <li><a href="odalar.html" class="nav-link active">Odalarımız</a></li>
+      <li><a href="iletisim.html" class="nav-link">İletişim</a></li>
+    </ul>
+    <div class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Odalar -->
+<section class="rooms-section fade-in">
+    <!-- Oda 1 -->
+    <div class="room-card fade-in">
+        <img src="https://nurteks.com.tr/wp-content/uploads/2019/06/otel-halisi-nurteks1.jpg" alt="Oda 1">
+        <a href="oda-detay.html?oda=1" class="cta-button">İncele</a>
+        <div class="room-info">
+            <h3>Oda 1</h3>
+            <p>Fiyat: 500 ₺ / gece</p>
+            <p>Konforlu ve modern oda</p>
+            <div class="features">
+                <span class="feature">Klima</span>
+                <span class="feature">TV</span>
+                <span class="feature">WiFi</span>
+            </div>
+        </div>
+    </div>
+    <div class="room-card fade-in">
+        <img src="https://nurteks.com.tr/wp-content/uploads/2019/06/otel-halisi-nurteks1.jpg" alt="Oda 1">
+        <a href="oda-detay.html?oda=1" class="cta-button">İncele</a>
+        <div class="room-info">
+            <h3>Oda 1</h3>
+            <p>Fiyat: 500 ₺ / gece</p>
+            <p>Konforlu ve modern oda</p>
+            <div class="features">
+                <span class="feature">Klima</span>
+                <span class="feature">TV</span>
+                <span class="feature">WiFi</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="room-card fade-in">
+        <img src="https://nurteks.com.tr/wp-content/uploads/2019/06/otel-halisi-nurteks1.jpg" alt="Oda 1">
+        <a href="oda-detay.html?oda=1" class="cta-button">İncele</a>
+        <div class="room-info">
+            <h3>Oda 1</h3>
+            <p>Fiyat: 500 ₺ / gece</p>
+            <p>Konforlu ve modern oda</p>
+            <div class="features">
+                <span class="feature">Klima</span>
+                <span class="feature">TV</span>
+                <span class="feature">WiFi</span>
+            </div>
+        </div>
+    </div>
+    <div class="room-card fade-in">
+        <img src="https://nurteks.com.tr/wp-content/uploads/2019/06/otel-halisi-nurteks1.jpg" alt="Oda 1">
+        <a href="oda-detay.html?oda=1" class="cta-button">İncele</a>
+        <div class="room-info">
+            <h3>Oda 1</h3>
+            <p>Fiyat: 500 ₺ / gece</p>
+            <p>Konforlu ve modern oda</p>
+            <div class="features">
+                <span class="feature">Klima</span>
+                <span class="feature">TV</span>
+                <span class="feature">WiFi</span>
+            </div>
+        </div>
+    </div>
+    <div class="room-card fade-in">
+        <img src="https://nurteks.com.tr/wp-content/uploads/2019/06/otel-halisi-nurteks1.jpg" alt="Oda 1">
+        <a href="oda-detay.html?oda=1" class="cta-button">İncele</a>
+        <div class="room-info">
+            <h3>Oda 1</h3>
+            <p>Fiyat: 500 ₺ / gece</p>
+            <p>Konforlu ve modern oda</p>
+            <div class="features">
+                <span class="feature">Klima</span>
+                <span class="feature">TV</span>
+                <span class="feature">WiFi</span>
+            </div>
+        </div>
+    </div>
+    <!-- Oda 2 -->
+    <div class="room-card fade-in">
+        <img src="https://pirilhotel.com/wp-content/uploads/2015/09/Piril-Hotel-Standart-Double-Room-Pool-View-01-01.jpg" alt="Oda 2">
+        <a href="oda-detay.html?oda=2" class="cta-button">İncele</a>
+        <div class="room-info">
+            <h3>Oda 2</h3>
+            <p>Fiyat: 600 ₺ / gece</p>
+            <p>Konforlu ve modern oda</p>
+            <div class="features">
+                <span class="feature">Klima</span>
+                <span class="feature">TV</span>
+                <span class="feature">WiFi</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Hamburger menü
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+});
+
+// Fade-in scroll
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.2 };
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, appearOptions);
+faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
+</body>
+</html>

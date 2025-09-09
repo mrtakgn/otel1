@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oda Detay</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* Slider Fade Animation */
+#room-slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 90px auto;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+#room-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+#room-slider img.active {
+    opacity: 1;
+    position: relative;
+}
+
+/* Thumbnail Images */
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.thumbnails img {
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.thumbnails img.active,
+.thumbnails img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Oda Bilgileri */
+.room-details {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.room-details h2 {
+    font-family: 'Playfair Display', serif;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.room-details p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.room-details .features {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.room-details .feature {
+    padding: 8px 12px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    font-size: 0.9rem;
+}
+
+/* İnceleme Butonu */
+.back-button {
+    display: inline-block;
+    background: #3a9eb8;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.back-button:hover {
+    background: #b8941f;
+    transform: translateY(-2px);
+}
+
+/* Fade-in Effect */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar fade-in">
+  <div class="nav-container">
+    <div class="nav-logo"><h2>Otel1</h2></div>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">Anasayfa</a></li>
+      <li><a href="odalar.html" class="nav-link">Odalarımız</a></li>
+       <li><a href="iletisim.html" class="nav-link">İletişim</a></li>
+    </ul>
+    <div class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Slider -->
+<div class="fade-in fade-in-delay-1">
+    <div id="room-slider">
+        <img src="https://pirilhotel.com/wp-content/uploads/2015/09/Piril-Hotel-Standart-Double-Room-Pool-View-01-01.jpg" class="active" alt="Oda 1">
+        <img src="https://nurteks.com.tr/wp-content/uploads/2019/06/otel-halisi-nurteks1.jpg" alt="Oda 1">
+        <img src="https://www.fcmobilya.com/upload/slider/2000x2000/otel-odasi-fc-mobilya-2-20200603143740.jpeg" alt="Oda 1">
+    </div>
+    <div class="thumbnails" id="thumbnails">
+        <img src="https://pirilhotel.com/wp-content/uploads/2015/09/Piril-Hotel-Standart-Double-Room-Pool-View-01-01.jpg" class="active" alt="Oda 1" onclick="showSlide(0)">
+        <img src="https://nurteks.com.tr/wp-content/uploads/2019/06/otel-halisi-nurteks1.jpg" alt="Oda 1" onclick="showSlide(1)">
+        <img src="https://www.fcmobilya.com/upload/slider/2000x2000/otel-odasi-fc-mobilya-2-20200603143740.jpeg" alt="Oda 1" onclick="showSlide(2)">
+    </div>
+</div>
+
+<!-- Oda Detayları -->
+<div class="room-details fade-in fade-in-delay-2">
+    <h2>Oda 1</h2>
+    <p>Konforlu ve modern tasarımlı oda. Geniş yataklar, temiz bir ortam ve huzurlu bir konaklama sunar.</p>
+    <p>Fiyat: 500₺ / Gece</p>
+    <div class="features">
+        <span class="feature">Klima</span>
+        <span class="feature">TV</span>
+        <span class="feature">WiFi</span>
+        <span class="feature">Minibar</span>
+        <span class="feature">Balkon</span>
+    </div>
+    <a href="odalar.html" class="back-button">Geri Dön</a>
+</div>
+
+<script>
+// Hamburger
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Slider (thumbnail ile geçiş)
+const slides = document.querySelectorAll('#room-slider img');
+const thumbs = document.querySelectorAll('#thumbnails img');
+let currentSlide = 0;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if(i === index) slide.classList.add('active');
+    });
+    thumbs.forEach((thumb, i) => {
+        thumb.classList.remove('active');
+        if(i === index) thumb.classList.add('active');
+    });
+    currentSlide = index;
+}
+</script>
+
+</body>
+</html>
