@@ -18,6 +18,45 @@
     border-radius: 15px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
+.navbar .nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: 0.3s;
+}
+
+/* Mobil görünüm */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        width: 400px;
+        height: calc(100vh - 70px);
+        flex-direction: column;
+        background-color: #fff;
+        transition: right 0.3s ease;
+        padding: 20px;
+    }
+    .nav-menu.active {
+        right: 0;
+    }
+    .hamburger {
+        display: flex;
+    }
+}
 
 #room-slider img {
     width: 100%;
@@ -199,6 +238,7 @@ function showSlide(index) {
     });
     currentSlide = index;
 }
+
 </script>
 
 </body>
